@@ -10,7 +10,6 @@ jobs:
 
 
     steps:
-
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -21,6 +20,16 @@ jobs:
 
       - name: Grant rights
         run: chmod +x build.gradle
+
+      - name: cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
       - name: Lint
         id: lint
