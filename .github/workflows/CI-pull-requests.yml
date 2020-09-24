@@ -23,13 +23,13 @@ jobs:
         run: chmod +x build.gradle
 
       - name: Lint
-          id: test
-          run: ./gradlew lint
+        id: test
+        run: ./gradlew lint
 
       - name: Build with Gradle
         id: build
         run: ./gradlew build
 
       - name: Build with Gradle
-          id: test
-          run: ./gradlew test
+        id: test
+        run: ./gradlew test
